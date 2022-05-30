@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping-cart</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/reponsive.css" />
+    <link rel="stylesheet" href="webbanhang.css">
+    <link rel="stylesheet" href="wedbanhang.css">
+
+
+<body>
+<!-- ĐẦU TRANG  -->
+
+<!--taọ thẻ header để chứa các thẻ con-->
+<header>
+<!--    mở thẻ nav để chứa khối thẻ con-->
+    <nav>
+        <div class="img-nav">
+            <h1>  ĂN VẶT HÀ NỘI <img src="https://cf.shopee.vn/file/d683b40c95878766b8938f315b1afdc6" width="100" height="50"   alt=""> </h1>
+
+        </div>
+        <div class="content-nav">
+            <ul>
+                <li><a href="#">Trang Chủ</a></li>
+                <li><a href="#">Sản Phẩm</a></li>
+                <li><a href="#">Liên Hệ</a></li>
+                <li><a href="#">Giới Thiệu</a></li>
+            </ul>
+            <form>
+                <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." />
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+        <!--PHẦN GIỎ HÀNG -->
+<!--        tạo 1 nút button để clik vào phần giỏ hàng thêm id tên cart.-->
+        <button id="cart">
+<!--            tạo thẻ i rồi thuộc tính clas , cho icon giỏ hàng vào button và tên giỏ hàng-->
+            <i class="fa fa-shopping-basket" aria-hidden="true">Giỏ Hàng</i>
+        </button>
+<!--       mở thẻ (div) để ôm những thẻ (h5) (img) (span) ở trong-->
+<!--        thêm id tên giỏ hàng / phần này là phần khi bấm vào giỏ hàng trên icon sẽ hiển thỉ ra phần thêm sp vào
+ trong phần này có thêm sp xóa ,
+-->
+<!--        tạo id " mymodal " để js-->
+        <div id="myModal" class="modal">
+            <div class="modal-content">s
+                <div class="modal-header">
+                    <h5 class="modal-title">Giỏ Hàng</h5>
+                    <span class="close">&times;</span>
+                </div>
+<!--                mở thẻ div để thêm các conten và tiêu đề , và sp vào trong để khi ấn vào giở hàng sẻ hiện ra -->
+                <div class="modal-body">
+                    <div class="cart-row">
+                        <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                        <span class="cart-price cart-header cart-column">Giá</span>
+                        <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                    </div>
+                    <div class="cart-items">
+
+                    </div>
+                    </div>
+                    <div class="cart-total">
+                        <strong class="cart-total-title">Tổng Cộng:</strong>
+                        <span class="cart-total-price" id="cart-total-price">0 vnd</span>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-footer">Đóng</button>
+                    <button type="button" class="btn btn-primary order">Thanh Toán</button>
+                </div>
+            </div>
+        </div>
+<!-- kết thúc phần tạo ion , content và sp cho phần thêm vào giỏ hàng-->
+    </nav>
+    <!-- PHẦN THÂN TRANG GIỚI THIỆU SP -->
+    <section class="wrapper">
+        <div class="products">
+            <ul>
+                <li class="main-product">
+                    <div class="img-product">
+                        <img class="img-prd" src="https://anvatchipchip.com/image/cache/catalog/image_products/an-vat/kho-heo-chay-toi-652-600x600.png" width="300" height="300" alt="">
+
+                    </div>
+                    <div class="content-product">
+                        <h3 class="content-product-h3">Heo khô cháy tỏi </h3>
+                        <div class="content-product-deltals">
+                            <div class="price">
+                                <span class="money">110k/500g</span>
+                            </div>
+                            <button type="button" class="btn btn-cart">MUA</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="main-product">
+                    <div class="img-product">
+                        <img class="img-prd"
+                             src="https://cf.shopee.vn/file/f3435adb401a1a5c7ad9b6cee1e36368" width="300" height="300" alt="">
+                    </div>
+                    <div class="content-product">
+                        <h3 class="content-product-h3">Mực cán cay</h3>
+                        <div class="content-product-deltals">
+                            <div class="price">
+                                <span class="money">95k/250g</span>
+                            </div>
+                            <button type="button" class="btn btn-cart">MUA</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="main-product">
+                    <div class="img-product">
+                        <img class="img-prd"
+                             src="https://sweetiehouse.vn/wp-content/uploads/2020/08/27c6c506b207a1fdee0f61a4d8a0eb38.jpg" width="300" height="300"
+                             alt="">
+                    </div>
+                    <div class="content-product">
+                        <h3 class="content-product-h3">Khô gà lá chanh</h3>
+                        <div class="content-product-deltals">
+                            <div class="price">
+                                <span class="money">85k/300g</span>
+                            </div>
+                            <button type="button" class="btn btn-cart">MUA</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="main-product no-margin">
+                    <div class="img-product">
+                        <img class="img-prd"
+                             src="http://cdn.shopify.com/s/files/1/0363/6317/4024/products/RongBi_nChayT_i_1024x.jpg?v=1595165892" width="300" height="300"
+                             alt="">
+                    </div>
+                    <div class="content-product">
+                        <h3 class="content-product-h3">Rong biển cháy tỏi</h3>
+                        <div class="content-product-deltals">
+                            <div class="price">
+                                <span class="money">95k/200g</span>
+                            </div>
+                            <button type="button" class="btn btn-cart">MUA</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="main-product">
+                    <div class="img-product">
+                        <img class="img-prd"
+                             src="https://anvatdanang.vn/wp-content/uploads/2020/12/kho-bo-que.jpg" width="300" height="300">
+                    </div>
+                    <div class="content-product">
+                        <h3 class="content-product-h3">Bò khô que</h3>
+                        <div class="content-product-deltals">
+                            <div class="price">
+                                <span class="money">125k/250g</span>
+                            </div>
+                            <button type="button" class="btn btn-cart">MUA</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="main-product">
+                    <div class="img-product">
+                        <img class="img-prd"
+                             src="https://cf.shopee.vn/file/a088ee6f8d85c41180b24f5de76f83e7" width="300" height="300"
+                             alt="">
+                    </div>
+                    <div class="content-product">
+                        <h3 class="content-product-h3">Mực xé sợi</h3>
+                        <div class="content-product-deltals">
+                            <div class="price">
+                                <span class="money">90k/250g</span>
+                            </div>
+                            <button type="button" class="btn btn-cart">MUA</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="main-product">
+                    <div class="img-product">
+                        <img class="img-prd"
+                             src="https://salt.tikicdn.com/cache/w1200/ts/product/7e/b5/a6/89c029edd910b3db6c6abe81db2ed11a.jpg" width="300" height="300"
+                             alt="">
+                    </div>
+                    <div class="content-product">
+                        <h3 class="content-product-h3">Trái cây thập cẩm </h3>
+                        <div class="content-product-deltals">
+                            <div class="price">
+                                <span class="money">60k/300g</span>
+                            </div>
+                            <button type="button" class="btn btn-cart">MUA</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="main-product no-margin">
+                    <div class="img-product">
+                        <img class="img-prd"
+                             src="https://anvatchipchip.com/image/cache/catalog/image_products/an-vat/da-heo-muoi-ot-657-500x500.png" width="300" height="300"
+                             alt="">
+                    </div>
+                    <div class="content-product">
+                        <h3 class="content-product-h3">Da heo cháy tỏi </h3>
+                        <div class="content-product-deltals">
+                            <div class="price">
+                                <span class="money">80k/300g</span>
+                            </div>
+                            <button type="button" class="btn btn-cart">MUA</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--PHẦN CUỐI TRANG THÔNG TIN SDT  -->
+        <footer>
+            <div class="footer-item">
+                <div class="img-footer">
+                    <img src="img/logo.png" alt="" />
+                </div>
+                <div class="social-footer">
+                    <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100026522323403">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    </a></li>
+<!--                    <li><a target="_blank" href="https://github.com/long1211">-->
+<!--                        <i class="fa fa-github-square" aria-hidden="true"></i>-->
+<!--                    </a></li>-->
+                </div>
+            </div>
+        </footer>
+    </section>
+
+</header>
+</body>
+<script src="wedbanhang.js"></script>
+
+</html>
+https://anchuongshoes.vn/wp-content/uploads/2020/02/Giay-Adidas-Ultraboost-5.0-Multicolor-800x800-1-1.jpg
